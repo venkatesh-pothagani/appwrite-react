@@ -23,7 +23,15 @@ const SignUp = () => {
         account
             .create(uuid(), email, password, fullName)
             .then((_response) => {
-                navigate("/profile");
+                navigate("/");
+                account
+                    .createVerification("http://localhost:5173/")
+                    .then((response) => {
+                        console.log(response);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
             })
             .catch((error) => {
                 alert(error.message);

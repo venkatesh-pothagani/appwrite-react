@@ -7,6 +7,7 @@ import SignUp from "./components/SignUp/SignUp";
 import Profile from "./components/Profile/Profile";
 import TodoForm from "./components/TodoForm/TodoForm";
 import TodoList from "./components/TodoList/TodoList";
+import ImageHub from "./components/ImageHub/ImageHub";
 
 function App() {
     return (
@@ -21,6 +22,8 @@ function App() {
 
                 <Route path="/add-todo" element={<TodoForm />} />
                 <Route path="/list-todo" element={<TodoList />} />
+
+                <Route path="/image-hub" element={<ImageHub />} />
             </Routes>
         </div>
     );

@@ -9,6 +9,21 @@ const SignIn = () => {
 
     const navigate = useNavigate();
 
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const userId = urlParams.get("userId");
+    const secret = urlParams.get("secret");
+
+    if (userId && secret)
+        account
+            .updateVerification(userId, secret)
+            .then(() => {
+                alert(`Verification completed successfully`);
+            })
+            .catch(() => {
+                alert(`Verification failed`);
+            });
+
     const handleSubmit = async (event: MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
 
