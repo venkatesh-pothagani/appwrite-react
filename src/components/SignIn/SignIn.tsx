@@ -22,6 +22,11 @@ const SignIn = () => {
             });
     };
 
+    const handleGitHubSigninClick = (event: MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        account.createOAuth2Session("github", "http://localhost:5173/profile", "http://localhost:5173/sign-up");
+    };
+
     return (
         <>
             <div className="flex py-4 justify-around">
@@ -68,6 +73,17 @@ const SignIn = () => {
                         Sign In
                     </button>
                 </div>
+
+                <div className="col-span-6 ">
+                    <button
+                        type="button"
+                        className="mt-2 block w-full text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                        onClick={handleGitHubSigninClick}
+                    >
+                        Sign in with Github
+                    </button>
+                </div>
+
                 <div className="col-span-6">
                     <Link
                         to="/sign-up"
